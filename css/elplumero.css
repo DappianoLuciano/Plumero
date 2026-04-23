@@ -1,0 +1,134 @@
+/* El Plumero — estilos */
+
+html {
+	margin: 0;
+	padding: 0;
+	background: #0d0d0d;
+	overflow-x: hidden;
+	overflow-y: auto;   /* barra de desplazamiento vertical */
+}
+
+body {
+	margin: 0;
+	padding: 0 0 0 220px;   /* 220px a la izquierda = espacio justo para el sidebar */
+	background: #0d0d0d;
+	overflow-x: hidden;
+	overflow-y: auto;
+	min-height: 100vh;
+}
+
+/* El canvas se desplaza a la derecha para dejar espacio al sidebar.
+   260px = ancho aprox. del sidebar + margen de separación con el libro. */
+#canvas {
+	width: 1440px;
+	height: 960px;
+	margin: 30px auto;
+}
+
+#book-zoom {
+	-webkit-transition: -webkit-transform 1s;
+	transition: transform 1s;
+}
+
+.sj-book {
+	width: 1440px;
+	height: 960px;
+}
+
+.sj-book .hard {
+	width: 720px;
+	height: 960px;
+	background-color: white;
+}
+
+.sj-book .own-size {
+	width: 720px;
+	height: 960px;
+	background-color: white;
+	overflow: hidden;
+	position: relative;
+}
+
+.sj-book .page-wrapper {
+	-webkit-perspective: 2000px;
+	perspective: 2000px;
+}
+
+/* Sin gradientes de fondo — páginas planas blancas */
+.sj-book .even,
+.sj-book .odd {
+	background: white !important;
+	background-image: none !important;
+}
+
+/* Portada */
+.sj-book .cover-front { background: white; }
+
+/* Tapa interior delantera — fondo transparente para no mostrar rectángulo blanco */
+.sj-book .front-side {
+	background: transparent;
+}
+
+/* Contratapa interior */
+.sj-book .back-inner {
+	background: white;
+}
+
+/* Contratapa */
+.sj-book .back-cover { background: white; }
+
+/* Contenido de las tapas visible durante animación */
+.sj-book-transform div[page="1"]  > div,
+.sj-book-transform div[page="2"]  > div,
+.sj-book-transform div[page="43"] > div,
+.sj-book-transform div[page="44"] > div {
+	overflow: visible !important;
+}
+
+/* ─── Sidebar título izquierdo ───────────────────────────────────────────────── */
+
+#sidebar-title {
+	position: fixed;
+	left: 30px;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	z-index: 100;
+	pointer-events: none;
+	color: white;
+}
+
+#sidebar-title h1,
+#sidebar-title h2,
+#sidebar-title h3 {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+}
+
+.titulo-principal {
+	font-family: 'Anton', sans-serif;
+	font-size: 60px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.subtitulo {
+	font-family: 'Playfair Display', serif;
+	font-size: 40px;
+	font-weight: 400;
+}
+
+.logo-script {
+	font-family: 'Pacifico', cursive;
+	font-size: 45px;
+}
+
+#slider-bar { display: none; }
+
+.animated {
+	-webkit-transition: margin-left 0.6s ease-in-out;
+	transition: margin-left 0.6s ease-in-out;
+}
