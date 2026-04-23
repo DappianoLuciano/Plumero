@@ -5,7 +5,8 @@ html {
 	padding: 0;
 	background: #0d0d0d;
 	overflow-x: hidden;
-	overflow-y: auto;   /* barra de desplazamiento vertical */
+	overflow-y: auto;
+	zoom: 0.5;           /* zoom 50% por defecto — el libro entra completo en pantalla */
 }
 
 body {
@@ -64,9 +65,9 @@ body {
 /* Portada */
 .sj-book .cover-front { background: white; }
 
-/* Tapa interior delantera — fondo transparente para no mostrar rectángulo blanco */
+/* Tapa interior delantera */
 .sj-book .front-side {
-	background: transparent;
+	background: white;
 }
 
 /* Contratapa interior */
