@@ -8,17 +8,17 @@ var _photos = [25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,42,43,44,45];
 // Área de foto por página: 670 × 860  (margen 50px exterior/arriba/abajo, 0 en lomo)
 // Imagen en spread: 1340px de ancho  (2 × 670)
 
-var IMG_W    = 1340;  // ancho total de la imagen en el spread
-var HALF_W   = 670;   // ancho visible por página
-var WRAP_H   = 860;   // alto del contenedor de foto
+var IMG_W    = 898;   // ancho total de la imagen en el spread  (1340 × 0.67)
+var HALF_W   = 449;   // ancho visible por página              (670  × 0.67)
+var WRAP_H   = 576;   // alto del contenedor de foto           (860  × 0.67)
 
 // ─── HTML de la media foto ────────────────────────────────────────────────────
 
 function makePhotoHtml(photoNum, side) {
 	var isLeft   = (side === 'left');
 	var margin   = isLeft
-		? 'margin:50px 0 50px 50px;'
-		: 'margin:50px 50px 50px 0;';
+		? 'margin:34px 0 34px 34px;'
+		: 'margin:34px 34px 34px 0;';
 	var imgShift = isLeft ? '' : 'margin-left:-' + HALF_W + 'px;';
 	var shadow   = isLeft
 		? 'box-shadow:inset -8px 0 14px -8px rgba(0,0,0,0.20);'
