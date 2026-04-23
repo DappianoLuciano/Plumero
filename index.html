@@ -31,27 +31,12 @@
 	<div id="book-zoom">
 		<div class="sj-book">
 
-			<!-- p1 : Portada -->
+			<!-- p1 : Portada (sola en vista 1) -->
 			<div depth="5" class="hard cover-front">
 				<img src="pics/portada.jpg" style="display:block;width:100%;height:100%;">
 			</div>
 
-			<!-- p2 : Tapa interior — mitad izquierda de la foto 25
-			     Oculta (opacity:0) cuando la portada está sola (vista 1). -->
-			<div depth="5" class="hard front-side" id="inner-front">
-				<div style="position:absolute;top:50px;bottom:50px;left:50px;right:0;
-				            background-image:url('pics/25.jpg');
-				            background-size:200% 100%;
-				            background-position:0 0;
-				            background-repeat:no-repeat;
-				            box-shadow:inset -8px 0 14px -8px rgba(0,0,0,0.20);">
-				</div>
-			</div>
-
-			<!-- p43 : Contratapa interior -->
-			<div class="hard fixed back-side back-inner" id="inner-back"></div>
-
-			<!-- p44 : Contratapa -->
+			<!-- p42 : Contratapa (sola en vista 22) -->
 			<div class="hard back-cover"></div>
 
 		</div>
@@ -82,33 +67,19 @@ function loadApp() {
 		autoCenter  : true,
 		gradients   : true,
 		duration    : 800,
-		pages       : 44,
+		pages       : 42,
 		when        : {
-
-			turning: function(e, page, view) {
-				var book  = $(this);
-				var total = book.turn('pages');
-				var cur   = book.turn('page');
-
-				// Saltar vista en blanco (p42-p43) al navegar
-				if (page === 42 || page === 43) {
-					e.preventDefault();
-					var target = (cur <= 41) ? total : 41;
-					setTimeout(function() { book.turn('page', target); }, 1);
-					return;
-				}
-
-				if (page >= 2) $('.sj-book .front-side').addClass('fixed');
-				else            $('.sj-book .front-side').removeClass('fixed');
-
-				if (page < total) $('.sj-book .back-inner').addClass('fixed');
-				else               $('.sj-book .back-inner').removeClass('fixed');
-			},
 
 			turned: function(e, page) {
 				var book = $(this);
 				if (page === 2 || page === 3) book.turn('peel', 'br');
 				book.turn('center');
+			},
+
+			missing: function(e, pages) {
+				for (var i = 0; i < pages.length; i++) {
+					addPage(pages[i], $(this));
+				}
 			}
 
 		}
