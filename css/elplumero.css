@@ -20,8 +20,8 @@ body {
 /* El canvas se desplaza a la derecha para dejar espacio al sidebar.
    260px = ancho aprox. del sidebar + margen de separación con el libro. */
 #canvas {
-	width: 965px;
-	height: 643px;
+	width: 1440px;
+	height: 960px;
 	margin: 30px auto;
 }
 
@@ -29,19 +29,19 @@ body {
 }
 
 .sj-book {
-	width: 965px;
-	height: 643px;
+	width: 1440px;
+	height: 960px;
 }
 
 .sj-book .hard {
-	width: 482px;
-	height: 643px;
+	width: 720px;
+	height: 960px;
 	background-color: white;
 }
 
 .sj-book .own-size {
-	width: 482px;
-	height: 643px;
+	width: 720px;
+	height: 960px;
 	background-color: white;
 	overflow: hidden;
 	position: relative;
