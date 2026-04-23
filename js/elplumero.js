@@ -51,28 +51,23 @@ function makeBlankPage() {
 }
 
 // ─── Construcción del libro ───────────────────────────────────────────────────
-// p1  = portada            (hard cover-front)    → vista 1: sola
-// p2  = foto 25 ½ izq      (hard front-side, HTML)
-// p3  = foto 25 ½ der      (inner)
-// p4-41 = fotos 26-45      (inner)
-// p42 = página para texto  (inner blank)
-// p43 = contratapa int.    (hard back-inner)
-// p44 = contratapa         (hard back-cover)     → vista 23: sola
+// p1      = portada     (hard cover-front)  → vista 1: sola
+// p2-p41  = 20 fotos × 2 páginas           (inner)
+// p42     = contratapa  (hard back-cover)   → vista 22: sola
 
 function buildInnerPages() {
 	var book         = document.querySelector('.sj-book');
-	var insertBefore = book.querySelector('.back-inner');
+	var insertBefore = book.querySelector('.back-cover');
 
 	for (var i = 0; i < _photos.length; i++) {
 		var n = _photos[i];
-		if (i === 0) {
-			book.insertBefore(makePhotoPage(n, 'right'), insertBefore);
-		} else {
-			book.insertBefore(makePhotoPage(n, 'left'),  insertBefore);
-			book.insertBefore(makePhotoPage(n, 'right'), insertBefore);
-		}
+		book.insertBefore(makePhotoPage(n, 'left'),  insertBefore);
+		book.insertBefore(makePhotoPage(n, 'right'), insertBefore);
 	}
-	book.insertBefore(makeBlankPage(), insertBefore);
+}
+
+function addPage(page, book) {
+	// fallback por si turn.js pide páginas no generadas
 }
 
 function isChrome() {

@@ -5,7 +5,7 @@ html {
 	padding: 0;
 	background: #0d0d0d;
 	overflow-x: hidden;
-	overflow-y: auto;   /* barra de desplazamiento vertical */
+	overflow-y: auto;
 }
 
 body {
@@ -64,9 +64,10 @@ body {
 /* Portada */
 .sj-book .cover-front { background: white; }
 
-/* Tapa interior delantera — fondo transparente para no mostrar rectángulo blanco */
+/* Tapa interior delantera */
 .sj-book .front-side {
-	background: transparent;
+	background: white;
+	position: relative;
 }
 
 /* Contratapa interior */
@@ -124,6 +125,25 @@ body {
 .logo-script {
 	font-family: 'Pacifico', cursive;
 	font-size: 45px;
+}
+
+#sidebar-right {
+	position: fixed;
+	right: 30px;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	z-index: 100;
+	pointer-events: none;
+	color: white;
+	text-align: right;
+}
+
+#sidebar-right span {
+	display: block;
+	line-height: 1;
 }
 
 #slider-bar { display: none; }
