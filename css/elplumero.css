@@ -6,7 +6,6 @@ html {
 	background: #0d0d0d;
 	overflow-x: hidden;
 	overflow-y: auto;
-	zoom: 0.5;           /* zoom 50% por defecto — el libro entra completo en pantalla */
 }
 
 body {
