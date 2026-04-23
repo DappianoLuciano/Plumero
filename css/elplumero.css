@@ -67,6 +67,7 @@ body {
 /* Tapa interior delantera */
 .sj-book .front-side {
 	background: white;
+	position: relative;
 }
 
 /* Contratapa interior */
